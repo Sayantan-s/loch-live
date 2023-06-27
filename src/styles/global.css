@@ -1,0 +1,18 @@
+:root {
+  --font: 'Inter';
+  --grey-900: #19191a;
+  --grey-300: #b0b1b3;
+  --grey-100: #e5e5e6;
+  --grey-000: white;
+  --font-size-big: 39px;
+  --font-size-big-lh: 46.8px;
+  --normal: 500;
+  --fat: 600;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: var(--font);
+}

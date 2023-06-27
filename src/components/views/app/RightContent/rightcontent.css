@@ -1,0 +1,38 @@
+.right-panel {
+  display: flex;
+  flex: 0.4;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.right-panel .right-panel__content .right-panel__content__heading {
+  font-size: var(--font-size-big);
+  font-weight: var(--normal);
+  line-height: var(--font-size-big-lh);
+  color: var(--grey-300);
+}
+
+.right-panel .right-panel__content .right-panel__content__form {
+  margin-top: 32px;
+}
+
+.right-panel .right-panel__content .right-panel__content__form .right-panel__content__form__button {
+  width: 100%;
+  padding: 18px 28px;
+  margin-top: 24px;
+  font-weight: var(--fat);
+  color: var(--grey-000);
+  cursor: pointer;
+  background: var(--grey-900);
+  border: 1px solid var(--grey-900);
+  border-radius: 8px;
+}
+
+.right-panel .right-panel__content .right-panel__content__reminder {
+  padding: 18px 0;
+  margin-top: 24px;
+  font-weight: var(--fat);
+  color: var(--grey-900, #19191a);
+  text-align: center;
+}

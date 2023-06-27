@@ -1,8 +1,10 @@
 /** @type {import('vite').UserConfig} */
 
+import * as path from 'path'
+
 import react from '@vitejs/plugin-react'
+import Unfonts from 'unplugin-fonts/vite'
 import { defineConfig } from 'vite'
-import { VitePluginFonts } from 'vite-plugin-fonts'
 import { createHtmlPlugin } from 'vite-plugin-html'
 import viteImagemin from 'vite-plugin-imagemin'
 
@@ -12,6 +14,12 @@ const { imagemin } = config
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  server: {
+    open: true,
+    host: 'localhost',
+    port: 3000,
+    hmr: true
+  },
   plugins: [
     react(),
     viteImagemin(imagemin),
@@ -19,28 +27,22 @@ export default defineConfig({
       minify: true,
       entry: 'src/main.tsx'
     }),
-    VitePluginFonts({
-      // Custom fonts
-      custom: {
-        families: [
-          {
-            name: 'CascadiaCodePL',
-            src: './src/assets/fonts/*.woff2'
-          }
-        ],
+    Unfonts({
+      google: {
+        preconnect: false,
         display: 'swap',
-        preload: true,
-        prefetch: false,
-        injectTo: 'head-prepend'
+        injectTo: 'head-prepend',
+        families: ['Inter']
       }
     })
   ],
   css: {},
   resolve: {
     alias: [
-      { find: '@/', replacement: '/src' },
-      { find: '@/Assets', replacement: '/src/assets' },
-      { find: '@/Components', replacement: '/src/components' }
+      {
+        find: '@components',
+        replacement: path.resolve(__dirname, 'src/components')
+      }
     ]
   }
 })
